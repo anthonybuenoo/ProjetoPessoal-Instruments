@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap%27');
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+p{
+    font-weight: 16px;
+    color: #111;
+}
+body{
+    margin:0;
+    padding:0;
+    font-family: 'Montserrat';
+}
+.banner{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(https://images3.alphacoders.com/589/58905.jpg);
+    background-size: cover;
+    overflow-y: 1900;
+}
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    z-index:10000;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+   
+}
+
+header .logo{
+    color: #fff;
+    font-weight: 700;
+    font-size: 2em;
+    text-decoration:none;
+}
+
+header .navigation{
+    position: relative;
+    display: flex;
+}
+header .navigation li{
+    list-style: none;
+    margin-left: 30px;
+}
+header .navigation li a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 10px;
+    font-size: 17px;
+}
+section{
+    padding:100px;
+    background-color: rgba(0,0,0,0.2);
+}
+/* GUITARRA, BATERIA */
+.row{
+    position: relative;
+    width:100%;
+    display: flex;
+}
+.row .col50{
+    position:relative;
+    width: 48%;
+}
+.tittleText{
+    color:#111;
+    font-size: 2em;
+    font-weight: 300;
+}
+
+.row .col50 .imgBx{
+    position: relative;
+    width:100%;
+    height: 100%;
+}
+.row .col50 .imgBx img{
+    position: absolute;
+    TOP:0;
+    left:0;
+    width: 620px;
+    height:320px;
+    border-radius: 10px;
+    object-fit:cover ;
+}
+.container img{
+    position: relative;
+    width: 620px;
+    height:320px;
+    border-radius: 10px;
+    object-fit:cover ;
+}
+.container{
+    display: flex;
+    align-items: center;
+}
+.container p{
+    margin-left: 20px;
+    width: 47vw;
+}
+.content h2{
+    margin-left: 13px;
+}
+
+
+/* FOOTER */
+
+.footer {
+    background-color: #000;
+    height: 80px;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;    
+  }
+  
+  .footer .container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  h4 {
+    margin: 0;
+    padding: 0;
+  }
+  .footer .container h4 {
+      margin-top:30px;
+  }
+
+  /* SCROLL */
+  body::-webkit-scrollbar {
+    width: 12px;             
+  }
+  body::-webkit-scrollbar-track {
+    background: black;  
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: #262626;   
+    border-radius: 15px;       
+  }
+
+
