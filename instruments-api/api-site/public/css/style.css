@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap%27');
+
+*{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body{
+    margin:0;
+    padding:0;
+    font-family: 'Montserrat';
+}
+p{
+    font-weight: 16px;
+    color: #111;
+}
+.banner{
+    position: relative; 
+    width: 100%;
+    min-height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background: url(https://images3.alphacoders.com/589/58905.jpg);
+    background-size: cover;
+ ;
+}
+.header {
+  color: white;
+  border-bottom: 3px solid #000;
+  top: 1300px;
+
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(0, 0, 0);
+}
+
+.header a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 10px;
+}
+.header h1{
+    font-size: 35px;
+    margin-left: 70px;
+    color: #fff;
+    -webkit-text-stroke: 1px #FFF;
+    -stroke: 1px #FFF;
+}   
+.navbar {
+  width: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style: none;
+  color: #fff;
+}
+.navbar  a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 5px;
+	border: 1px solid transparent;
+    border-radius: 10px;
+	
+}
+.navbar  a:hover{
+    background-color: #fff;
+	color: black;
+	transition: 0.5s;
+    font-weight: bold;
+}
+section{
+    padding: 50px;
+    background-color: rgba(0,0,0,0.1);
+}
+
+/* GUITARRA, BATERIA */
+.row{
+    position: relative;
+    width:100%;
+    display: flex;
+}
+.row .col50{
+    position:relative;
+    width: 48%;
+}
+.tittleText{
+    color:#111;
+    font-size: 2em;
+    font-weight: 300;
+}
+/* IMAGENS ESQUERDA */
+.containerleft img{
+    position: relative;
+    width: 620px;
+    height:320px;
+    border-radius: 10px;
+    object-fit:cover ;
+}
+.containerleft{
+    display: flex;
+    align-items: center;
+}
+.containerleft p{
+    margin-left: 20px;
+    width: 40vw;
+}
+.containerleft h2{
+    margin-left: 13px;
+}
+
+
+/* FOOTER */
+
+.footer {
+    background-color: #000;
+    height: 15vh;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;    
+  }
+  
+  .footer .container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  h4 {
+    margin: 0;
+    padding: 0;
+  }
+  .footer .container h4 {
+      margin-top:30px;
+  }
+
+  /* SCROLL */
+  body::-webkit-scrollbar {
+    width: 12px;             
+  }
+  body::-webkit-scrollbar-track {
+    background: black;  
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: #262626;   
+    border-radius: 15px;       
+  }
+
+/* CARROSSEL */
+.content{
+    height: 320px;
+    width: 620px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+}
+.labelclass{
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+}
+.bar{
+    width: 60px;
+    height: 10px;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+    margin: 7px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.bar:hover{
+    background: #fff;
+    transition: .4s;
+}
+input{
+    display: none;
+}
+.slides{
+    display:flex;
+    width: 500%;
+    height: 100%;
+}
+.slide{
+    width: 20%;
+    transition: .6s;
+}
+.slide img {
+    width: 100%;
+    height: 100%;
+}
+#slide1:checked ~ .s1{
+    margin-left: 0;
+}
+#slide2:checked ~ .s1{
+    margin-left: -20%;
+}
+#slide3:checked ~ .s1{
+    margin-left: -40%;
+}
+#slide4:checked ~ .s1{
+    margin-left: -60%;
+}
+#slide5:checked ~ .s1{
+    margin-left: -80%;
+}
+/*  */
+#slide10:checked ~ .s10{
+    margin-left: 0;
+}
+#slide20:checked ~ .s10{
+    margin-left: -20%;
+}
+#slide30:checked ~ .s10{
+    margin-left: -40%;
+}
+#slide40:checked ~ .s10{
+    margin-left: -60%;
+}
+#slide50:checked ~ .s10{
+    margin-left: -80%;
+}
+/*  */
+#slide100:checked ~ .s100{
+    margin-left: 0;
+}
+#slide200:checked ~ .s100{
+    margin-left: -20%;
+}
+#slide300:checked ~ .s100{
+    margin-left: -40%;
+}
+#slide400:checked ~ .s100{
+    margin-left: -60%;
+}
+#slide500:checked ~ .s100{
+    margin-left: -80%;
+}
+
