@@ -22,7 +22,7 @@ p{
     align-items: center; 
     background: url(https://images3.alphacoders.com/589/58905.jpg);
     background-size: cover;
- ;
+    overflow-y: 1900;
 }
 .header {
   color: white;
@@ -64,7 +64,7 @@ p{
     padding: 5px 5px;
 	border: 1px solid transparent;
     border-radius: 10px;
-	
+
 }
 .navbar  a:hover{
     background-color: #fff;
@@ -73,8 +73,9 @@ p{
     font-weight: bold;
 }
 section{
-    padding: 50px;
-    background-color: rgba(0,0,0,0.1);
+    height: 10%;
+    padding: 100px;
+    background-color: rgba(0,0,0,0.2);
 }
 
 /* GUITARRA, BATERIA */
@@ -85,7 +86,7 @@ section{
 }
 .row .col50{
     position:relative;
-    width: 48%;
+    width: 45%;
 }
 .tittleText{
     color:#111;
@@ -115,27 +116,64 @@ section{
 
 /* FOOTER */
 
-.footer {
+.footer-container {
     background-color: #000;
-    height: 15vh;
-    color: white;
+    height: 30vh;
+    width: 99.1vw;
     margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;    
+    padding-top: 40px;
+    color: #fff;    
   }
-  
-  .footer .container {
+   .footer-container {
     display: flex;
+    align-items: center;
     justify-content: center;
+    flex-direction: column;
+    text-align: center;
   }
-  
-  h4 {
-    margin: 0;
-    padding: 0;
+  .footer-container h3{
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+    -webkit-text-stroke: 1px #FFF;
+    -stroke: 1px #FFF;
+  }
+  .footer-container p {
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 8px;
+    font-size: 14px;
+  }
+  .socials {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+    margin-right: 50px;
+  }
+  .socials li{
+        margin: 0 10px;
+  }
+  .socials a{
+    text-decoration: none;
+    color: #fff;
+  }
+  .socials a i{
+    font-size: 1.1rem;
+    transition: color .4s ease;
+  }
+  .socials a:hover i{
+    color: rgba(255, 0, 0, 0.5);
   }
   .footer .container h4 {
-      margin-top:30px;
+      margin-top:0px;
+  } 
+  /* FIM DO FOOTER */
+  h4 {  
+    margin: 0;
+    padding: 0;
   }
 
   /* SCROLL */
@@ -242,5 +280,33 @@ input{
 }
 #slide500:checked ~ .s100{
     margin-left: -80%;
+}
+
+.btn{
+    padding: 5px;
+    width: 140px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 105px;
+    background: rgba(7, 2, 2,0.9);
+    color: white;
+    
+}
+.btn:hover{
+   letter-spacing: 0.5px;
+    transition: 0.5s;
+}
+.row .saiba_mais{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.botao{
+    display: flex;
+    margin-left:40px ;
 }
 

@@ -65,6 +65,8 @@
                 <button class="btn" onclick="cadastrar()">Cadastrar</button>
             </div>
 
+            <p><u><a href="login.html">Já e cadastrado? Faça login aqui.</a></u></p>
+
             <div id="div_aguardar" class="loading-div">
                 <img src="./assets/circle-loading.gif" id="loading-gif">
             </div>
@@ -101,7 +103,7 @@
             }
             if (confirmacaoSenhaVar == "") {
                 console.log('confirmacaoSenha está em branco')
-            }if (dataNascimentoVar == "") {
+            } if (dataNascimentoVar == "") {
                 alert('Data de nascimento não válida')
             }
             finalizarAguardar();
