@@ -54,7 +54,7 @@ body{
 }
   .loginbox{
     position: absolute;
-    top: 55%;
+    top: 60%;
     left: 50%;
     transform:translate(-50%,-50%);
     width: 29vw;
@@ -73,7 +73,10 @@ h3{
     margin: 0;
     padding: 0;
     color: #262626;
-    text-align: center;
+   margin-bottom: 15px;
+   text-align: center;
+   font-size: 22px;
+ 
 }
 .loginbox input{
     width: 100%;
@@ -89,7 +92,7 @@ h3{
     height: 40px;
     color: #262626;
     background: transparent;
-    font-size: 20px;
+    font-size: 15px;
     padding-left: 19px;
     box-sizing: border-box;
 }
