@@ -93,7 +93,7 @@ function cadastrar(req, res) {
             );
     }
 }
-    function favorito (){
+    function favorito (req, res){
       var id = req.params.id;
       var idinstrumento = req.body.idinstrumento;
       

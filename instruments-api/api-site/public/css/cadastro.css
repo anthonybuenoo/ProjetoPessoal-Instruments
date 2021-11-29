@@ -173,49 +173,15 @@ body::-webkit-scrollbar {
   width: 50px;
 }
 
-select{
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
-  outline: 0;
-  box-shadow: none;
-  border: 0!important;
-  background: #5c6664;
-  background-image: none;
-}
-select::-ms-expand{
-  display: none;
-}
-.select{
-  position: relative;
-  display: flex;
-  width: 10em;
-  height: 4vh;
-  line-height: 3;
-  background: #5c6664;
-  overflow: hidden;
-  border-radius: 5px;
-  margin-left: 100px;
-}
-select{
-  flex: 1;
-  padding: 0 .5em;
-  color: #FFF;
-  cursor: pointer;
-}
-.select::after{
-  content: '\25BC';
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0 1em;
-  background: #fff;
-  cursor: pointer;
-  pointer-events: none;
-  transition: 25s all ease;
-}
-.select:houver::after{
-  color: #5c6664;
-  
+select {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  /* margin: 2.5% 0;
+  padding: 4% 6%; */
+  background-color: white;
+  height: 30px;
+  border: 2px solid black;
+  border-radius: 10px;
+  opacity: 95%;
+  justify-content: center;
+  align-self: center;
 }
