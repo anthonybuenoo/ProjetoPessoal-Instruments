@@ -10,7 +10,6 @@ function listar() {
 }
 
 function entrar(email, senha) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucao = `
         SELECT * FROM usuario WHERE email = '${email}' AND senha = '${senha}';
     `;
@@ -19,11 +18,16 @@ function entrar(email, senha) {
 }
 
 function cadastrar(nome, email, senha, data_nascimento, musico ) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha, data_nascimento, musico);
     var instrucao = `
         INSERT INTO usuario (nome, email, senha, data_nascimento, musico) VALUES ('${nome}', '${email}', '${senha}', '${data_nascimento}', '${musico}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function favorito(id, idinstrumento) {
+    var instrucao = `
+    update usuario set fk_instrumentosFavorito = ${idinstrumento} where id = ${id}; 
+    `
     return database.executar(instrucao);
 }
 
@@ -31,4 +35,5 @@ module.exports = {
     entrar,
     cadastrar,
     listar,
+    favorito,
 };

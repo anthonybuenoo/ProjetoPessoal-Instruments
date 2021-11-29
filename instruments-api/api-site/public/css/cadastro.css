@@ -190,12 +190,13 @@ select::-ms-expand{
 .select{
   position: relative;
   display: flex;
-  width: 20em;
-  height:3em;
+  width: 10em;
+  height: 4vh;
   line-height: 3;
   background: #5c6664;
   overflow: hidden;
   border-radius: 5px;
+  margin-left: 100px;
 }
 select{
   flex: 1;
@@ -209,7 +210,7 @@ select{
   top: 0;
   right: 0;
   padding: 0 1em;
-  background: #000;
+  background: #fff;
   cursor: pointer;
   pointer-events: none;
   transition: 25s all ease;

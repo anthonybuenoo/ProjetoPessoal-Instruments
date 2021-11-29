@@ -19,4 +19,8 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
+router.post("/favorito/id", function (req, res) {
+    usuarioController.favorito(req, res);
+});
+
 module.exports = router;
