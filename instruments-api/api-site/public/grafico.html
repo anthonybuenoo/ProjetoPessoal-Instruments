@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
+    <link rel="shortcut icon" href="../assets/icon/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instruments | Avisos</title>
 
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="icon" href="./assets/icon/favicon.ico">
-
-    <script src="./js/funcoes.js"></script>
-    <script src="https://kit.fontawesome.com/258c1b4476.js" crossorigin="anonymous"></script>
-    <title>HOME</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/dash.css">
+    <script src="../js/funcoes.js"></script>
 </head>
 
-<body onload="validarSessao()">
+<body onload="validarSessao(), atualizarFeed()" style="background-color: #161618;">
+    <!-- <body onload="validarSessao()"> -->
 
     <!--header inicio-->
     <div class="header">
@@ -22,97 +22,74 @@
             <h1><a href="index.html">Instruments</a></h1>
             <ul class="navbar">
                 <li><a href="index.html">Inicial</a></li>
-                <li><a href="grafico.html">Gráficos</a></li> 
-            
-                <li><a onclick="limparSessao()" href="login.html">Sair</a></li>
+                <li><a href="index.html">Votação</a></li>
+                <li><a href="index.html">Inicial</a></li>
                 <li><a href=""><i class="fas fa-user-alt"></i></a></li>
             </ul>
         </div>
     </div>
 
     <!--header fim-->
+    <div class="janela">
 
-    <div class="side-header">
-        <div class="container">
 
-            <div class="usuario">
-                <div class="user">
-                    <h3>Olá, <b id="b_usuario"></b></h3>
-                </div>
-                <div class='saudacao'>
-                    Bem vindo a votação de Instrumentos
+        <div class="header-left">
+
+            <h1>Instruments</h1>
+
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
+
+            <div class="btn-nav-white">
+                <a href="./dashboard.html">
+                    <h3>Gráficos</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav">
+                <h3>Mural de Avisos</h3>
+            </div>
+
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
+            </div>
+
+        </div>
+
+        <div class="dash-right">
+
+            <div class="avisos">
+                <div class="container">
+                    <h1>Publicar um aviso</h1>
+                    <div class="div-form">
+                        <form id="form_postagem" method="post" onsubmit="return publicar()">
+                            <label>
+                                Título:
+                                <br>
+                                <input name="titulo" id="titulo" maxlength="100" type="text">
+                            </label>
+                            <br>
+                            <label>
+                                Descrição (máximo de 250 caracteres):
+                                <br>
+                                <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                            </label>
+                            <br>
+                            <button>Enviar</button>
+                        </form>
+                    </div>
+                    <h1>Mural de Avisos</h1>
+                    <div class="div-results">
+                        <div id="feed_container" class="feed-container">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="container1">
-        <div class="box">
-            <div class="imgBx">
-                <img src="assests2/assets/baixo/baixo.jpg" alt="CONTRABAIXO" width="400px">
-            </div>
-            <div class="content">
-                <div>
-                    <h2>BAIXO</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum officiis optio corporis vero a
-                        eligendi, suscipit facere voluptates laudantium nemo totam iure porro deleniti et natus
-                        architecto magni fugiat! Aliquam.</p>
-                </div>
-            </div>
-        </div>
-        <div class="box">
-            <div class="imgBx">
-                <img src="assests2/assets/guitarra/guitarra3.jpg" alt="GUITARRA" width="400px">
-            </div>
-            <div class="content">
-                <div>
-                    <h2>GUITARRA</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum officiis optio corporis vero a
-                        eligendi, suscipit facere voluptates laudantium nemo totam iure porro deleniti et natus
-                        architecto magni fugiat! Aliquam.</p>
-                </div>
-            </div>
-        </div>
-        <div class="box">
-            <div class="imgBx">
-                <img src="assests2/assets/violao/violao2.jpg" width="400px">
-            </div>
-            <div class="content">
-                <div>
-                    <h2>VIOLAO</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum officiis optio corporis vero a
-                        eligendi, suscipit facere voluptates laudantium nemo totam iure porro deleniti et natus
-                        architecto magni fugiat! Aliquam.</p>
-                </div>
-            </div>
-        </div>
-        <div class="box">
-            <div class="imgBx">
-                <img src="assests2/assets/teclado/teclado2.jpg" alt="CONTRABAIXO" width="400px">
-            </div>
-            <div class="content">
-                <div>
-                    <h2>TECLADO</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum officiis optio corporis vero a
-                        eligendi, suscipit facere voluptates laudantium nemo totam iure porro deleniti et natus
-                        architecto magni fugiat! Aliquam.</p>
-                </div>
-            </div>
-        </div>
-        <div class="box">
-            <div class="imgBx">
-                <img src="assests2/assets/bateria/bateria2.jpg" alt="CONTRABAIXO" width="400px">
-            </div>
-            <div class="content">
-                <div>
-                    <h2>BATERIA</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum officiis optio corporis vero a
-                        eligendi, suscipit facere voluptates laudantium nemo totam iure porro deleniti et natus
-                        architecto magni fugiat! Aliquam.</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
 
@@ -122,7 +99,7 @@
 
 <script>
 
-function limparFormulario() {
+    function limparFormulario() {
         document.getElementById("form_postagem").reset();
     }
 

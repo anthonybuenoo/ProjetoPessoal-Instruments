@@ -16,9 +16,7 @@
     <script src="https://kit.fontawesome.com/258c1b4476.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/cadastro.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+   
 </head>
 
 <body>
@@ -60,7 +58,13 @@
                 </div>
                 <div class="inputsbox">
                     <input type="date" placeholder="Data de Nascimento" id="datanascimento" required>
-                    <span></span>
+                </div>
+                <div class="select">
+                    <select id="musico_select">
+                        <option value="">Você é músico?</option>
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
+                    </select>
                 </div>
                 <button class="btn" onclick="cadastrar()">Cadastrar</button>
             </div>
@@ -88,10 +92,11 @@
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
         var dataNascimentoVar = datanascimento.value;
+        var selectmusicoVar = musico_select.value;
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || dataNascimentoVar == "") {
+            window.alert("Preencha todos os campos para prosseguir!")
 
-            window.alert("Preencha todos os campos para prosseguir!");
             if (nomeVar == "") {
                 console.log('nome está em branco')
             }
@@ -108,8 +113,8 @@
             }
             finalizarAguardar();
             return false;
+        
         }
-
         if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
             window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
             finalizarAguardar();
@@ -131,7 +136,10 @@
                 nomeServer: nomeVar,
                 emailServer: emailVar,
                 senhaServer: senhaVar,
-                dataNascimentoServer: dataNascimentoVar
+                dataNascimentoServer: dataNascimentoVar,
+                musicoServer: selectmusicoVar
+
+
             })
         }).then(function (resposta) {
 
@@ -155,36 +163,3 @@
 
 </script>
 
-
-<!--  <div class="container ">
-            <div class="card medio">
-                <h2>Bem-vindo!</h2>
-                <div class="formulario">
-                    <div id="form_cadastro">
-                        Nome:
-                        <br>
-                        <input id="nome_input" type="text" placeholder="Ada Lovelace">
-                        <br>
-                        <br>
-                        E-mail:
-                        <br>
-                        <input id="email_input" type="text" placeholder="meuemail@provedor.com">
-                        <br>
-                        <br>
-                        Senha:
-                        <br>
-                        <input id="senha_input" type="password" placeholder="******">
-                        <br>
-                        <br>
-                        Confirmação da Senha:
-                        <br>
-                        <input id="confirmacao_senha_input" type="password" placeholder="******">
-                        <br>
-                        Cor favorita:
-                        <br>
-                        <input id="corfavorita" type="text" placeholder="Azul">
-                        <br>
-                        <br>
-                        <button class="btn" onclick="cadastrar()">Cadastrar</button>
-                    </div>
-                </div> -->

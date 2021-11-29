@@ -65,6 +65,7 @@ function cadastrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
     var data_nascimento = req.body.dataNascimentoServer;
+    var musico  = req.body.musicoServer;
     // var cor_favorita = req.body.corFavoritaServer;
 
     if (nome == undefined) {
@@ -75,7 +76,7 @@ function cadastrar(req, res) {
         res.status(400).send("Sua senha está undefined!");
     } else {
         
-        usuarioModel.cadastrar(nome, email, senha, data_nascimento)
+        usuarioModel.cadastrar(nome, email, senha, data_nascimento, musico)
             .then(
                 function (resultado) {
                     res.json(resultado);
