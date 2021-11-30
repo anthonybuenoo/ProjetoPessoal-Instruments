@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro</title>
+
+    <script src="./js/funcoes.js"></script>
+
+
+   
+    <link rel="stylesheet" href="./css/styleglobal.css">
+    <link rel="stylesheet" href="./css/cadastro_login.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+  
+    <div class="page">
+        <div> <a href="./index.html"> <img id="seta" src="./img/seta.png" alt=""> </a> </div>
+        <div class="container ">
+            <div class="card4">
+                <h2 class="bem-vindo" >Cadastrar <hr> </h2>
+                <div class="formulario">
+                    <div id="form_cadastro">
+                        <span class="letra"> Nome:</span>
+                        <br>
+                        <input id="nome_input" type="text" placeholder="Ex. Enzo Fabrizio">
+                        <br>
+                        <br>
+                        <span class="letra"> Email:</span>
+                        <br>
+                        <input id="email_input" type="text" placeholder="meuemail@algumacoisa.com">
+                        <br>
+                        <br>
+                        <span class="letra"> Senha:</span>
+                        <br>
+                        <input id="senha_input" type="password" placeholder="******">
+                        <br>
+                        <br>
+                        <span class="letra"> Confirmação de Senha:</span>
+                        <br>
+                        <input id="confirmacao_senha_input" type="password" placeholder="******">
+                        <br>
+                        <span class="letra"> Genero musical favorito:</span>
+                        <br>
+                        <select style="width: 150px;text-align: center;" name="" id="genero_input">
+                            <option value="rock">Rock</option>
+                            <option value="MPB">MPB</option>
+                            <option value="funk">Funk</option>
+                            <option value="gospel">Gospel</option>
+                            <option value="rap">Rap</option>
+                            <option value="pop">Pop</option>
+                        </select>
+                        <br>
+                        <br>
+                        <button class="btn" onclick="cadastrar()">Cadastrar</button><br><br>
+                        <a id="hiperlinkc" href="./login.html">Já sou cadastrado</a><br>
+                    </div>
+                </div>
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/circle-loading.gif" id="loading-gif" >
+                </div>
+
+                <div id="div_erros_login">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+
+</body>
+
+</html>
+
+<script>
+
+    function cadastrar() {
+        aguardar();
+
+        var nomeVar = nome_input.value;
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+        var generoVar = genero_input.value
+
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+
+         
+            if (nomeVar == "") {
+                console.log('nome está em branco')
+            }
+            if (emailVar == "") {
+                console.log('email está em branco')
+            }
+            if (senhaVar == "") {
+                console.log('senha está em branco')
+            }
+            if (confirmacaoSenhaVar == "") {
+                console.log('confirmacaoSenha está em branco')
+            }
+            finalizarAguardar();
+            return false;
+        }
+        
+     
+
+        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+            window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+            finalizarAguardar();
+            return false;
+        }
+
+        if (senhaVar != confirmacaoSenhaVar) {
+            window.alert("As senhas inseridas devem ser iguais para prosseguir!");
+            finalizarAguardar();
+            return false;
+        }
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+                generoServer: generoVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Cadastro realizado com sucesso!");
+                window.location = "login.html";
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+</script>

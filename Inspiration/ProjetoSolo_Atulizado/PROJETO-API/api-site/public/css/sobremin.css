@@ -1,0 +1,132 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.header {
+  color: #ff7900;
+  height: 14vh;
+  border-bottom: 3px solid #ff7900;
+  background-color: rgb(0, 0, 0);
+  /* border: 3px solid yellow; */
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  /* border: 3px solid pink; */
+}
+
+.header a {
+  text-decoration: none;
+  color: #ff5e00;
+  font-family: 'Exo 2';
+}
+
+
+.navbar {
+    padding-top: 2.5vh;
+  width: 22vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style: none;
+  color: #e3b062;
+  /* border: 3px solid green; */
+}
+
+.agora {
+    color: #ff7900;
+    font-weight: 800;
+    font-family: 'Exo 2';
+  }
+  
+  .title1{
+      padding-top: 1.6vh    ;
+  }
+
+  
+    .banner {
+    height: 500px;
+    color: white;
+    background-image: url("https://wallpaperaccess.com/full/5745221.jpg");
+    background-size: cover;
+    
+    }
+
+
+
+    .sobre {
+        padding: 3vh 4vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 92vw;
+    }
+    
+    .sobre_content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2% 3%;
+    }
+    
+    .sobre_iframe iframe {
+        width: 30vw;
+    }
+    
+    .sobre_container .sobre_subtitle {
+        font-size: 1.6em;
+        font-style: italic;
+        font-family: 'Exo 2', sans-serif;
+        margin-bottom: 2vh;
+    }
+    
+    .sobre_container .text {
+        padding: 2vh 4vw;
+        font-family: 'Exo 2', sans-serif;
+    }
+   
+
+#title_main{
+    text-align: center;
+}
+
+
+
+
+
+
+
+    
+.footer {
+    background-color: #000000f1;
+    height: 100px;
+    color: #FF5100;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  .footer h4{
+  
+      text-align: center;
+     
+  }
+  
+  .footer .container {
+    display: flex;
+    justify-content: center;
+  }
+  

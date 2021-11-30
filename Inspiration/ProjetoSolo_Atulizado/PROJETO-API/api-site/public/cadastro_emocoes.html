@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styleglobal.css">
+    <link rel="stylesheet" href="./css/cadastro_emocoes.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="./css/cadastro_login.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+        
+        <script src="./js/emocoes.js"></script>
+</head>
+<body id="cadastrar_emocoes" >
+
+    <div class="header">
+        <div class="container">
+            <h1 class="title2" >Music-Emotion</h1>
+            <ul class="navbar2">
+                <li ><a href="index.html">Inicial</a></li>
+                <li>
+                    <a href="./simulador.html">Jogo adivinhações</a>
+                </li>
+                <li>
+                    <a href="./metricas.html">metricas</a>
+                </li>
+            </ul>
+        </div>
+     </div>   
+
+
+        
+    <div class="pages">
+        <div class="container">
+             <div id="aparece_div" style="display: block;"  >    
+                <div class="card3">
+                    <h2 class="title_cadastro">Cadastro Music<hr> </h2><br><br>
+                
+                    <div class="formulario">
+                        <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                            <span class="letra"> Como você quer se sentir</span><br>
+                            <select name="sentimento" id="sel_sentimento">
+                                <option value="selecioneEmo">Selecione uma emoção</option>
+                                <option value="feliz">Feliz</option>
+                                <option value="apaixonado">Apaixonado</option>
+                                <option value="calmo">Calmo</option>
+                                <option value="motivado">Motivado</option>
+                            </select><br>
+                            <span class="letra">Selecione um genero musical:</span><br>
+                            <select name="genero_musical" id="sel_genero_musical">
+                                <option value="selecioneGen">Selecione um genero</option>
+                                <option value="rap">rap</option>
+                                <option value="pop">pop</option>
+                                <option value="rock">rock</option>
+                                <option value="MPB">MPB</option>
+                                <option value="funk">Funk</option>
+                                <option value="gospel">Gospel</option>
+                            </select>
+                            <br><br>
+                            <button onclick="mostrar()" type="button" class="btn">Cadastrar</button><br><br>
+                        
+                        </form>
+                    </div>
+                </div>
+
+            </div>    
+
+            <div id="refresh"> <img onclick="voltar()" id="img_refresh" src="./img/refresg.png" alt=""> </div>
+
+         </div>
+     </div>    
+
+     
+     <div class="footer">
+        <div class="container">
+            <h4 >Desenvolvido Por Enzo Fabrizio &copy; 2021</h4>
+        </div>
+    </div>
+
+    </body>
+
+
+    
+
+
+</html>
+
+
+

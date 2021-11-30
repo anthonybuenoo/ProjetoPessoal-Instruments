@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+    <html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métrica</title>
+    <link rel="stylesheet" href="./css/styleglobal.css">
+    <link rel="stylesheet" href="./css/metricas.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Document</title>
+</head>
+<body id="back-metric" onload="atualizarFeed()" >
+
+    <div class="header">
+        <div class="container">
+            <h1 class="title1" >Music-Emotion</h1>
+            <ul class="navbar">
+                <li ><a href="index.html">Inicial</a></li>
+                <li>
+                    <a href="./simulador.html">adivinhações</a>
+                </li>
+                <li>
+                    <a href="./cadastro_emocoes.html">emoções</a>
+                </li>
+            </ul>
+        </div>
+      </div>  
+
+
+        <div class="social2">
+            <div class="container2">
+                <div class="titulo"><h2>
+                </h2>
+                </div>
+                <div class="caixas">
+                    <div class="caixa">
+                        <h1>O sentimento mais comum das pessoas das pessoas que entraram no 
+                            site foi:</h1>
+                        <div class="graf">
+                            <canvas id="myChartbar1" width="40" height="20"></canvas>
+                        </div>
+                        <h1 id="musica_sug" >Musica mais sugerida foi:</h1>
+                        <div class="musica_yt">
+                        <span id="iframe_metric" ></span>
+                        </div>
+                   
+                </div>
+                <div class="social3">
+                    <div class="container3">
+                        <div class="titulo">
+                            <h1> Ranking dos generos musicais favoritos dos usuários</h1><br><br>
+                            <div class="titulo_metricas" >
+                                
+                                 <span id="ranki" > ranking </span> 
+                                  <span id="nomi_metric" > nome </span>
+                                 <span id="use_metric" > usuários </span>
+                    
+                            </div>
+                        </div>
+                          <div id="feed_container">
+
+                          </div>
+              </div>  
+            </div>  
+        
+          
+            </div>
+        </div>
+        
+        
+     
+
+
+
+
+        
+        <div class="footer">
+            <div class="container">
+                <h4>Desenvolvido Por Enzo Fabrizio &copy; 2021</h4>
+            </div>
+        </div>
+    
+</body>
+</html>
+
+
+
+<script>
+
+
+
+
+
+
+
+function atualizarFeed() {
+        fetch("/ranking/listar/", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }       
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("tabela_ranking");
+                    var mensagem = document.createElement("td");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("feed_container");
+              
+               
+                    for (let i = 0; i < resposta.length; i++) {
+                        var rank = resposta[i];
+
+                        // criando e manipulando elementos do HTML via JavaScript
+                        var span_tend = document.createElement("span");
+                        var div_caixa = document.createElement("div");
+                        var span_teoria = document.createElement("span");
+                        var span_favs = document.createElement("span");
+                        var span_rank =  document.createElement("span");
+                     
+                        
+                        span_rank.innerHTML = `${i + 1 }º`
+                        span_teoria.innerHTML = `${rank.nome}   `;
+                        span_favs.innerHTML = `${rank.curtidas}`;
+                    
+        
+
+                        span_tend.className = "tendencias";
+                        span_favs.className = "box-tendencia";
+                        div_caixa.className = "favoritos";
+
+                        div_caixa.appendChild(span_rank)                           
+                        div_caixa.appendChild(span_teoria);
+                        div_caixa.appendChild(span_favs);
+                        span_tend.appendChild(div_caixa)
+                        feed_container.appendChild(span_tend)
+                      
+                     
+                    }
+
+
+              
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        
+        });
+
+
+
+        fetch("/sentimento/pegar/", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }       
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                        var tristao = (resposta[0].emoções); // 
+                        var normalzao = (resposta[1].emoções);
+                        var felizao = (resposta[2].emoções);
+                        var bravao = (resposta[3].emoções);
+                      
+
+
+ var ctx = document.getElementById('myChartbar1').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['triste', 'normal', 'feliz', 'bravo'],
+        datasets: [{
+            label: 'emoções',
+            data: [tristao,normalzao,felizao,bravao],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 3
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        },
+        maintainAspectRatio: false
+    }
+});
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        
+        });
+
+            //feliz
+
+       var felizpopVar =  sessionStorage.getItem('feliz_pop');
+       var felizmpbVar =  sessionStorage.getItem('feliz_MPB');
+       var felizrockVar =  sessionStorage.getItem('feliz_rock');
+       var felizrapVar =  sessionStorage.getItem('feliz_rap');
+       var felizgospelVar =  sessionStorage.getItem('feliz_gospel');
+       var felizfunkVar =  sessionStorage.getItem('feliz_funk');
+   
+        //calmo
+            var calmopopVar =  sessionStorage.getItem('calmo_pop');
+            var calmompbVar =  sessionStorage.getItem('calmo_MPB');
+            var calmorockVar =  sessionStorage.getItem('calmo_rock');
+            var calmorapVar =  sessionStorage.getItem('calmo_rap');
+            var calmofunkVar =  sessionStorage.getItem('calmo_funk');
+            var calmogospelVar =  sessionStorage.getItem('calmo_gospel');
+
+        // motivado
+
+            var motivadopopVar =  sessionStorage.getItem('motivado_pop');
+            var motivadompbVar =  sessionStorage.getItem('motivado_mpb');
+            var motivadorockVar =  sessionStorage.getItem('motivado_rock');
+            var motivadorapVar =  sessionStorage.getItem('motivado_rap');
+            var motivadofunkVar =  sessionStorage.getItem('motivado_funk');
+            var motivadogospelVar =  sessionStorage.getItem('motivado_gospel');
+
+
+            // apaixonado
+            
+            var apaixonadopopVar =  sessionStorage.getItem('apaixonado_pop');
+            var apaixonadompbVar =  sessionStorage.getItem('apaixonado_mpb');
+            var apaixonadorockVar =  sessionStorage.getItem('apaixonado_rock');
+            var apaixonadorapVar =  sessionStorage.getItem('apaixonado_rap');
+            var apaixonadofunkVar =  sessionStorage.getItem('apaixonado_funk');
+            var apaixonadogospelVar =  sessionStorage.getItem('apaixonado_gospel');
+
+
+
+
+
+
+
+
+        if (felizpopVar == 1) {
+            
+
+            iframe_metric.innerHTML = ` <iframe  width="560" height="315" src="https://www.youtube.com/embed/MOWDb2TBYDg?start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+           
+        }
+        else if (felizrockVar == 2) {
+            iframe_metric.innerHTML = ` <iframe  width="560" height="315" src="https://www.youtube.com/embed/Y-NjZp7Aurg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+           
+        }
+        else if (felizmpbVar == 3) {
+
+         iframe_metric.innerHTML =   ` <iframe  width="560" height="315" src="https://www.youtube.com/embed/uph0CERrjPM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+        
+        }
+        else if (felizrapVar == 4 ) {
+
+        iframe_metric.innerHTML =   ` <iframe width="560" height="315" src="https://www.youtube.com/embed/7pD8k2zaLqk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+        
+        }
+        else if (felizfunkVar == 5 ) {
+
+        iframe_metric.innerHTML =   ` <iframe  width="560" height="315" src="https://www.youtube.com/embed/bWnS2dIDgQA?start=80" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+        
+            }
+
+         else if (felizgospelVar == 6) {
+
+        iframe_metric.innerHTML =   ` <iframe  width="560" height="315" src="https://www.youtube.com/embed/lzCf7JyHbPg?start=19" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+        
+        }
+
+        // calmo
+
+        else if (calmopopVar == 7) {
+
+        iframe_metric.innerHTML =   ` <iframe width="560" height="315" src="https://www.youtube.com/embed/vD0JsUY4ATE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+        
+        }
+
+        else if (calmorockVar == 8) {
+            iframe_metric.innerHTML = ` <iframe width="560" height="315" src="https://www.youtube.com/embed/5Nj1D2y-PY8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+            
+        }
+        else if (calmompbVar == 9) {
+
+         iframe_metric.innerHTML =   `<iframe  width="560" height="315" src="https://www.youtube.com/embed/V6kTUpRoRHQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+         
+        }
+        else if (calmorapVar == 10 ) {
+
+        iframe_metric.innerHTML =   ` <iframe  width="560" height="315" src="https://www.youtube.com/embed/TQ5DUv_ZwRg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+        
+        }
+        else if (calmofunkVar == 11 ) {
+
+        iframe_metric.innerHTML =   ` <iframe width="560" height="315" src="https://www.youtube.com/embed/D91HXC_o_QQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  `
+        
+            }
+
+         else if (calmogospelVar == 12) {
+
+        iframe_metric.innerHTML =   ` <iframe  width="560" height="315" src="https://www.youtube.com/embed/YDbtPDbHdqU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+        
+        }
+
+        // motivado
+
+        else if (motivadopopVar == 13){
+
+        iframe_metric.innerHTML =   `<iframe width="560" height="315" src="https://www.youtube.com/embed/Svtr-p4mrQ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+        
+        }
+
+        else if (motivadorockVar == 14) {
+            iframe_metric.innerHTML = ` <iframe  width="560" height="315" src="https://www.youtube.com/embed/04854XqcfCY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+           
+        }
+        else if (motivadompbVar == 15) {
+
+        iframe_metric.innerHTML =   `<iframe width="560" height="315" src="https://www.youtube.com/embed/FmMleq61iJ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      
+        }
+        else if (motivadorapVar == 16 ) {
+
+        iframe_metric.innerHTML =   ` <iframe width="560" height="315" src="https://www.youtube.com/embed/h8lzw6ZRjLY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+       
+        }
+        else if (motivadofunkVar == 17 ) {
+
+        iframe_metric.innerHTML =   `<iframe width="560" height="315" src="https://www.youtube.com/embed/5LqeD-m7Iho" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  `
+       
+            }
+
+        else if (motivadogospelVar == 18) {
+
+        iframe_metric.innerHTML =   ` <iframe width="560" height="315" src="https://www.youtube.com/embed/UnEd_pFGWGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+      
+        }
+
+
+        // apapaixonado
+
+
+        else if (apaixonadopopVar == 19){
+
+    iframe_metric.innerHTML =   `<iframe width="560" height="315" src="https://www.youtube.com/embed/9YcrMk_cZyI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+
+    }
+
+    else if (apaixonadorockVar == 20) {
+        iframe_metric.innerHTML = ` <iframe ; width="560" height="315" src="https://www.youtube.com/embed/8aZHCPc9EwU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+
+    }
+    else if (apaixonadompbVar == 21) {
+
+    iframe_metric.innerHTML =   `<iframe width="560" height="315" src="https://www.youtube.com/embed/wyaCWQvOLYg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+
+    }
+    else if (apaixonadorapVar == 22) {
+
+    iframe_metric.innerHTML =   `<iframe  width="560" height="315" src="https://www.youtube.com/embed/yfGMPDKq1Pg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+
+    }
+    else if (apaixonadofunkVar == 23 ) {
+
+    iframe_metric.innerHTML =   `<iframe width="560" height="315" src="https://www.youtube.com/embed/dNNL70kE6Vc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+
+        }
+
+    else if (apaixonadogospelVar == 24) {
+
+    iframe_metric.innerHTML =   ` <iframe width="560" height="315" src="https://www.youtube.com/embed/Df8Wxxjv5Xc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+
+    }
+
+
+
+
+
+       
+
+    } 
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+    </script>
+
+

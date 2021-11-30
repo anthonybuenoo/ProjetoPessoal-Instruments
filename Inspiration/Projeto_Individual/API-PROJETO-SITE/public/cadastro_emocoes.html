@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styleglobal.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+<body id="cadastrar_emocoes" >
+
+    <div class="header">
+        <div class="container">
+            <h1 class="title1" >Music-Emotion</h1>
+            <ul class="navbar">
+                <li ><a href="index.html">Inicial</a></li>
+                <li>
+                    <a href="./login.html">Login</a>
+                </li>
+                <li>
+                    <a href="./cadastro.html">Cadastro</a>
+                </li>
+            </ul>
+        </div>
+     </div>   
+
+
+        
+    <div class="pages">
+        <div class="container">
+             <div id="aparece_div" style="display: block;"  >    
+                <div class="card3">
+                    <h2 class="title_cadastro_">Cadastro Music<hr> </h2><br>
+                
+                    <div class="formulario">
+                        <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                            <span class="letra"> Como você quer se sentir</span><br>
+                            <select name="sentimento" id="sel_sentimento">
+                                <option value="selecioneEmo">Selecione uma emoção</option>
+                                <option value="feliz">Feliz</option>
+                                <option value="apaixonado">Apaixonado</option>
+                                <option value="calmo">Calmo</option>
+                                <option value="motivado">Motivado</option>
+                            </select><br>
+                            <span class="letra">Selecione um genero musical:</span><br>
+                            <select name="genero_musical" id="sel_genero_musical">
+                                <option value="selecioneGen">Selecione um genero</option>
+                                <option value="rap">rap</option>
+                                <option value="pop">pop</option>
+                                <option value="rock">rock</option>
+                                <option value="MPB">MPB</option>
+                                <option value="funk">Funk</option>
+                                <option value="gospel">Gospel</option>
+                            </select>
+                            <br><br>
+                            <button onclick="mostrar()" type="button" class="btn">Cadastrar</button><br><br>
+                        
+                        </form>
+                    </div>
+                </div>
+
+            </div>    
+
+            <div id="refresh"> <img onclick="voltar()" id="img_refresh" src="../public/img/refresg.png" alt=""> </div>
+
+         </div>
+     </div>    
+
+     
+     <div class="footer">
+        <div class="container">
+            <h4 id="h4_emocoes" >Desenvolvido Por Enzo Fabrizio &copy; 2021</h4>
+        </div>
+    </div>
+
+    </body>
+
+
+    
+
+
+</html>
+
+
+
+
+<script>
+
+    function voltar() {
+
+        location.reload(aparece_div.value);
+        
+    }
+
+
+function mostrar() {
+
+    refresh.style.display ="block"
+
+    if (sel_sentimento.value == 'selecioneEmo' || sel_genero_musical.value == 'selecioneGen') {
+
+        alert('Selecione alguma emocão ou genero')
+        
+        
+    }
+
+    if (sel_sentimento.value == 'feliz' && sel_genero_musical.value == 'pop' ) {
+
+        aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br> <iframe style="margin-left: 23%;" width="560" height="315" src="https://www.youtube.com/embed/MOWDb2TBYDg?start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  `
+    }
+    else if (sel_sentimento.value == 'feliz' && sel_genero_musical.value == 'rock' ) {
+
+        aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br> <iframe style="margin-left: 23%;" width="560" height="315" src="https://www.youtube.com/embed/Y-NjZp7Aurg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  `
+    }
+    else if (sel_sentimento.value == 'feliz' && sel_genero_musical.value == 'MPB' ) {
+
+    aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br><iframe style="margin-left: 23%;"  width="560" height="315" src="https://www.youtube.com/embed/uph0CERrjPM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  `
+}
+    else if (sel_sentimento.value == 'feliz' && sel_genero_musical.value == 'rap' ) {
+
+    aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br><iframe style="margin-left: 23%;" width="560" height="315" src="https://www.youtube.com/embed/7pD8k2zaLqk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+}
+
+else if (sel_sentimento.value == 'feliz' && sel_genero_musical.value == 'funk' ) {
+
+    aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br><iframe style="margin-left: 23%;" width="560" height="315" src="https://www.youtube.com/embed/bWnS2dIDgQA?start=80" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+}
+
+else if (sel_sentimento.value == 'feliz' && sel_genero_musical.value == 'gospel' ) {
+
+    aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br><br> <iframe style ="margin-left:23%" width="560" height="315" src="https://www.youtube.com/embed/lzCf7JyHbPg?start=19" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>   `
+}
+
+
+if (sel_sentimento.value == 'calmo' && sel_genero_musical.value == 'pop' ) {
+
+aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br><iframe  style ="margin-left:23%" width="560" height="315" src="https://www.youtube.com/embed/r4HOG8kGORk?start=16" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  `
+}
+else if (sel_sentimento.value == 'calmo' && sel_genero_musical.value == 'rock' ) {
+
+aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br> <iframe style ="margin-left:23%" width="560" height="315" src="https://www.youtube.com/embed/5Nj1D2y-PY8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  `
+}
+else if (sel_sentimento.value == 'calmo' && sel_genero_musical.value == 'MPB' ) {
+
+aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br><iframe style ="margin-left:23%" width="560" height="315" src="https://www.youtube.com/embed/V6kTUpRoRHQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  `
+}
+else if (sel_sentimento.value == 'calmo' && sel_genero_musical.value == 'rap' ) {
+
+aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br><iframe style="margin-left: 23%;" width="560" height="315" src="https://www.youtube.com/embed/TQ5DUv_ZwRg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+}
+
+else if (sel_sentimento.value == 'calmo' && sel_genero_musical.value == 'funk' ) {
+
+aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2><br><br><iframe style="margin-left:23%;" width="560" height="315" src="https://www.youtube.com/embed/D91HXC_o_QQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  `
+}
+
+else if (sel_sentimento.value == 'calmo' && sel_genero_musical.value == 'gospel' ) {
+
+aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br><br> <iframe style ="margin-left:23%" width="560" height="315" src="https://www.youtube.com/embed/YDbtPDbHdqU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  `
+}
+
+
+
+if (sel_sentimento.value == 'motivado' && sel_genero_musical.value == 'pop' ) {
+
+aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br><iframe style="margin-left:23%;" width="560" height="315" src="https://www.youtube.com/embed/Svtr-p4mrQ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+}
+else if (sel_sentimento.value == 'motivado' && sel_genero_musical.value == 'rock' ) {
+
+aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br><iframe style ="margin-left:23%" width="560" height="315" src="https://www.youtube.com/embed/04854XqcfCY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  `
+}
+else if (sel_sentimento.value == 'motivado' && sel_genero_musical.value == 'MPB' ) {
+
+aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br><iframe style="margin-left:23%;" width="560" height="315" src="https://www.youtube.com/embed/FmMleq61iJ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  `
+}
+else if (sel_sentimento.value == 'motivado' && sel_genero_musical.value == 'rap' ) {
+
+aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br><iframe style="margin-left:23%;" width="560" height="315" src="https://www.youtube.com/embed/h8lzw6ZRjLY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+}
+
+else if (sel_sentimento.value == 'motivado' && sel_genero_musical.value == 'funk' ) {
+
+aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2><br><br><iframe style="margin-left:23%;" width="560" height="315" src="https://www.youtube.com/embed/5LqeD-m7Iho" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  `
+}
+
+else if (sel_sentimento.value == 'motivado' && sel_genero_musical.value == 'gospel' ) {
+
+aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br><br> <iframe style="margin-left:23%;" width="560" height="315" src="https://www.youtube.com/embed/UnEd_pFGWGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  `
+}
+
+
+
+if (sel_sentimento.value == 'apaixonado' && sel_genero_musical.value == 'pop' ) {
+
+aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br><iframe width="560" height="315" src="https://www.youtube.com/embed/9YcrMk_cZyI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+}
+else if (sel_sentimento.value == 'apaixonado' && sel_genero_musical.value == 'rock' ) {
+
+aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br><iframe style="margin-left:23%;" width="560" height="315" src="https://www.youtube.com/embed/8aZHCPc9EwU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+}
+else if (sel_sentimento.value == 'apaixonado' && sel_genero_musical.value == 'MPB' ) {
+
+aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br><iframe style="margin-left:23%;" width="560" height="315" src="https://www.youtube.com/embed/wyaCWQvOLYg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  `
+}
+else if (sel_sentimento.value == 'apaixonado' && sel_genero_musical.value == 'rap' ) {
+
+aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br><iframe  style="margin-left:23%;" width="560" height="315" src="https://www.youtube.com/embed/yfGMPDKq1Pg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+}
+
+else if (sel_sentimento.value == 'apaixonado' && sel_genero_musical.value == 'funk' ) {
+
+aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2><br><br><iframe style="margin-left:23%;" width="560" height="315" src="https://www.youtube.com/embed/dNNL70kE6Vc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  `
+}
+
+else if (sel_sentimento.value == 'apaixonado' && sel_genero_musical.value == 'gospel' ) {
+
+    aparece_div.innerHTML = ` <h2 style="margin-left:23%;" >Sugerimos que essa musica possa alegrar seu dia:</H2>  <br><br><iframe style="margin-left:23%;" width="560" height="315" src="https://www.youtube.com/embed/Df8Wxxjv5Xc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> `
+}
+
+
+
+
+
+    
+}
+
+
+
+</script>
+       
+

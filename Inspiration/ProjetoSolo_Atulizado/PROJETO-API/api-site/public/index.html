@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="./css/styleglobal.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+            <h1 class="title1" >Ekmusic</h1>
+            <ul class="navbar">
+                <li class="agora">Inicial</li>
+                <li>
+                    <a href="./login.html">Login</a>
+                </li>
+                <li>
+                    <a href="./cadastro.html">Cadastro</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="banner">
+            <div class="container">
+                <p>
+                    <i><span>“Ouvir</span> para  <span>Sentir”</span></i> 
+                </p>
+            </div>
+        </div>
+            <div class="social">
+                <div class="container">
+        
+                    <div class="titulo">
+                        <h2>Quais sentimentos a musica pode nos trazer?</h2>
+                    </div>
+                    <div class="boxes">
+                        <div class="boxs">
+                        <div class="cardzao">  
+                                <img src="./img/felizes.jpg" alt="icone da missão">
+                                <h4 class="titulos" >Felicidade</h4><br>
+                                <p>A musica tem um poder de  <br> conseguir nos deixar felizes <br>
+                                mesmo em dias tristes que <br>  nada esta dando certo,mas <br> 
+                                mas ela concesegue mexer<br> com os nossos sentimentos profundamente</p>
+                            </div>    
+                        </div>
+        
+                        <div class="boxs">
+                            <div class="cardzao">
+                                <img src="./img/teste6.jpg" alt="icone da visão">
+                                <h4 class="titulos" >Paz</h4><br>
+                                <p>A musica também ela é capaz <br> nos trazer paz em momentos  <br> muito tensos
+                                    em nossas vidas , <br>ou trazer   uma paz só para<br> pensar em certos momentos  <br> do dia a dia, por isso então
+                                    <br> esse sentimento pode até nos <br> fazer bem,e melhorar nosso dia</p>
+                            </div>    
+                        </div>
+    
+                    <div class="boxs">
+                        <div class="cardzao"> 
+                            <img src="./img/apaixonada.png" alt="icone dos valores">
+                            <h4 class="titulos" >Paixão</h4><br>
+                            <p>A música também em certos <br> momentos  pode nos trazer o sentimento de paixão,não so  <br>
+                                 trazer mas também cultivar  <br>  esse sentimento que está <br> 
+                                dentro de nós</p>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+          </div>  
+
+
+        <div class="social">
+            <div class="container">
+    
+                <div class="titulo">
+                    <h2>Como você se sente hoje?</h2>
+                </div>
+                <div class="boxes">
+                    <div class="box">
+                        <img id="img_feliz" onclick="feliz()"  class="emojif" src="./img/emote_feliz.jpeg" alt="">
+                        <h4>Feliz</h4>
+                    </div>
+    
+                    <div class="box">
+                        <img id="img_triste" onclick="triste()"  class="emojif" src="./img/emote_triste.jpeg" alt="">
+                        <h4>Triste</h4>
+                    </div>
+    
+                    <div class="box">
+                        <img id="img_bravo" onclick="bravo()"  class="emojip" src="./img/emote_bravo23.png" alt="">
+                        <h4>Bravo</h4>
+                    </div>
+                    
+                    <div class="box">
+                        <img id="img_normal"  onclick="normal()" class="emojif" src="./img/emote_normal.jpeg" alt="" >
+                        <h4>normal</h4>
+                    </div>
+                </div>
+            </div>
+    
+    
+        </div>
+
+
+        <div class="footer">
+            <div class="container">
+                <h4>Desenvolvido Por Enzo Fabrizio &copy; 2021</h4>
+            </div>
+        </div>
+    
+</body>
+</html>
+
+
+<script>
+
+function feliz() {
+
+    var felizVar = '1'
+
+    
+
+
+  var email = sessionStorage.EMAIL_USUARIO;
+    var nome = sessionStorage.NOME_USUARIO;
+
+    if (email != null && nome != null) {
+       
+        
+    fetch("/sentimento/feliz", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                felizServer: felizVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Cadastro realizado com sucesso!");
+           
+              
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+     
+        });
+
+        window.location.href = "./cadastro_emocoes.html"  
+        
+      
+    } else {
+        window.location.href = "./login.html";
+    }
+
+
+
+     
+}
+
+
+
+
+function triste() {
+
+
+    
+    var tristeVar = 'triste'
+
+    
+
+
+  var email = sessionStorage.EMAIL_USUARIO;
+    var nome = sessionStorage.NOME_USUARIO;
+
+    if (email != null && nome != null) {
+       
+        
+    fetch("/sentimento/triste", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                tristeServer: tristeVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Cadastro realizado com sucesso!");
+           
+              
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+     
+        });
+
+        window.location.href = "./cadastro_emocoes.html"  
+        
+      
+    } else {
+        window.location.href = "./login.html";
+    }
+
+
+    
+
+
+
+ 
+}
+
+
+
+function bravo() {
+
+
+    
+    var bravoVar = 'bravo'
+
+    
+
+
+  var email = sessionStorage.EMAIL_USUARIO;
+    var nome = sessionStorage.NOME_USUARIO;
+
+    if (email != null && nome != null) {
+       
+        
+    fetch("/sentimento/bravo", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                bravoServer: bravoVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Cadastro realizado com sucesso!");
+           
+              
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+     
+        });
+
+        window.location.href = "./cadastro_emocoes.html"  
+        
+      
+    } else {
+        window.location.href = "./login.html";
+    }
+
+
+
+
+
+ 
+}
+
+
+function normal() {
+
+
+    
+    var normalVar = 'normal'
+
+    
+
+
+  var email = sessionStorage.EMAIL_USUARIO;
+    var nome = sessionStorage.NOME_USUARIO;
+
+    if (email != null && nome != null) {
+       
+        
+    fetch("/sentimento/normal", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                normalServer: normalVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Cadastro realizado com sucesso!");
+           
+              
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+     
+        });
+
+        window.location.href = "./cadastro_emocoes.html"  
+        
+      
+    } else {
+        window.location.href = "./login.html";
+    }
+
+
+
+
+ 
+}
+
+</script>

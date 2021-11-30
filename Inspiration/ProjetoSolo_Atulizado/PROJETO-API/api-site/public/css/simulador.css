@@ -1,0 +1,213 @@
+
+
+
+ body .page3{
+
+    height: 80vh;
+     width: 99.14vw;
+    
+  }
+ 
+  body .page2 {
+  
+     background-size: cover;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 100vh;
+     width: 99.14vw;
+   overflow-x: hidden;
+ }
+
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+ 
+ .page2 .card5 { 
+     
+   height: 78vh;
+   width: 20vw;
+   display: flex;
+   justify-content: center;
+   align-content: space-around;
+   align-items: center;
+ flex-direction: column;
+   flex-wrap: wrap;
+   background: rgba(224, 229, 236, 0.08);
+ box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.08 );
+ backdrop-filter: blur( 4px );
+ -webkit-backdrop-filter: blur( 4px );
+ border-radius: 10px;
+ border: 1px solid rgba( 255, 255, 255, 0.18 );
+   margin-left: 79%;
+   margin-bottom: 20%;
+ 
+ }
+
+ .title2{
+  padding-top: 3.6vh    ;
+}
+
+ 
+.navbar2 {
+  padding-top: 5vh;
+width: 22vw;
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+list-style: none;
+color: #e3b062;
+/* border: 3px solid green; */
+}
+ 
+ 
+ .page2 .card6 { 
+     
+   height: 80vh;
+   width: 20vw;
+   display: flex;
+   justify-content: center;
+   align-content: space-around;
+   align-items: center;
+ flex-direction: column;
+   flex-wrap: wrap;
+   background: rgba(241, 194, 37, 0.45);
+ box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+ backdrop-filter: blur( 4px );
+ -webkit-backdrop-filter: blur( 4px );
+ border-radius: 10px;
+ border: 1px solid rgba( 255, 255, 255, 0.18 );
+   margin-left: 36%;
+   margin-bottom: 20%;
+   overflow-y: hidden;
+   overflow-x: hidden;
+  
+ }
+ 
+ 
+  .container2 h1{
+ 
+   margin-top: 5%;
+ text-align: center;  
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  ;
+ 
+ }
+ 
+ .container2 .titulo h1{
+   text-align: center;
+   margin-bottom: 5%;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  ;
+ }
+ 
+ .card5 .form_cadastro p{
+   line-height: 1.7;
+   padding-left: 4%;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ }
+ 
+ .card6 .form_cadastro p{
+   line-height: 1.7;
+   padding-left: 4%;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ }
+ 
+ 
+ 
+ .btn9 {
+   font-family: 'Exo 2', sans-serif;
+   border: 0;
+   border-radius: 5px;
+   font-weight: 600;
+   font-size: 18px;
+   padding: 13px 15px;
+   color: white;
+   background-color: #0e090b;
+   width: 150px;
+   align-self: center;
+   cursor: pointer;
+   padding-bottom: 15px;
+   
+   
+ }
+ 
+ 
+ .card5 .form_cadastro .alinhar{
+   text-align: center;
+ }
+ 
+ 
+ 
+ .txt_palpite{
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   font-weight: 700;
+ }
+ 
+ 
+ 
+ .btn22 {
+   font-family: 'Exo 2', sans-serif;
+   border: 0;
+   border-radius: 5px;
+   font-weight: 600;
+   font-size: 16px;
+   padding: 13px 15px;
+   color: white;
+   background-color: #0e090b;
+   width: 150px;
+   align-self: center;
+   cursor: pointer;
+   margin-top: 5%;
+ }
+ 
+ .container2 .div2 {
+   height: 70vh;
+   width: 20vw;
+   display: flex;
+   justify-content: center;
+ 
+   align-items: center;
+ flex-direction: column;
+ 
+   margin-left: 79%;
+   margin-bottom: 20%;
+ }
+ 
+ #aparecebotao{
+   text-align: center;
+   margin-bottom: 10%;
+ }
+ 
+ 
+ .caixas .caixa .musica_yt{
+   margin-left: 10%;
+ }
+ 
+ body .page4{
+ 
+   height: 60vh;
+    width: 99.14vw;
+   
+ }
+ 
+ .container2 .musica_yt4{
+   margin-left: 28%;
+ }
+ 
+ .social2 .container2 .titulo{
+  margin-left: 15%;
+  margin-bottom: 5%;
+ }
+ 
+ #simulador_body{
+   background-image: url('../img/wallpapersden.com_minimalist-orange-sunset_1920x1080.jpg');
+   background-size: cover;
+   background-repeat: no-repeat;
+ }
+ 
+ 
+ #musicapro2{
+   margin-left: 70%;
+ }
+ 
+ 
+ 

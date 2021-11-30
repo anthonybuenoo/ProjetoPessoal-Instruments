@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jogo</title>
+
+    <script src="./js/funcoes.js"></script>
+    <script src="./js/adivinhacao.js"></script>
+
+    <link rel="stylesheet" href="./css/simulador.css">
+    <link rel="stylesheet" href="./css/cadastro_login.css">
+    <link rel="stylesheet" href="./css/metricas.css">
+    
+    <link rel="stylesheet" href="./css/styleglobal.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="simulador_body" >
+
+    
+    <div class="header">
+        <div class="container">
+            <h1 class="title2" >Music-Emotion</h1>
+            <ul class="navbar2">
+                <li ><a href="index.html">Inicial</a></li>
+                <li>
+                    <a href="./metricas.html">Métricas</a>
+                </li>
+                <li>
+                    <a href="./cadastro_emocoes.html">emoções </a>
+                </li>
+            </ul>
+        </div>
+      </div>  
+
+      <div class="container2">
+            <h1>JOGO ADIVINHAÇÃO</h1>
+      </div>
+      <div id="div1" style="display: block;">
+     
+   
+
+      <div class="page2">
+          <div class="container2">
+          
+              <div class="card5">
+                  <h2>Regras</h2>
+                <div class="form_cadastro">
+                    <p> 1. Você terá que acertar meu genero musical favorito</p>
+                    <p> 2. Você terá que apenas 3 tentativas para acertar</p>
+                    <p> 3.Terá entre 15 generos musicais 2 corretos</p>
+                    <p> 4.Lembre-se eu gosto muito de mudanças então cada rodada terá um genero diferente</p><br>
+
+                    <div class="alinhar">
+                    
+                  <span class="txt_palpite" > Insira o numero do seu palpite </span> <br> <br> <input autocomplete="off" id="ipt_gen" type="text" placeholder="Ex . 1"> <br><br>  <button class="btn9" onclick="verifica()" > Enviar palpite</button>
+               
+                    <br>
+                </div>
+
+                </div>
+                
+              </div>
+              
+          </div>
+
+          <div class="container2">
+              <div class="card6">
+                  
+                <div class="form_cadastro">
+                    <h2>Os generos musicais <br> que gosto são</h2> <br><br>
+                    <p> 1.Gospel</p>
+                    <p> 2.Rap</p>
+                    <p> 3.Sertanejo</p>
+                    <p> 4.Trap</p>
+                    <p> 5.MPB</p>
+                    <p> 6.POP</p>
+                    <p> 7.Pagode</p>
+                    <p> 8.Raggae</p>
+                    <p> 9.Rock</p>
+                    <p> 10.Eletrônica</p>
+                    <p> 11.Clássica</p>
+                    <p> 12.Jazz</p>
+                    <p> 13.Funk</p>
+                    <p> 14.Raps Geek</p>
+                    <p> 15.Samba</p>
+
+                </div>
+                
+              </div>
+              
+          </div>
+      </div>
+    </div>   
+
+    <div id ="div2" style="display: none;" >
+        <div class="page3">
+            <div class="social2">
+                <div class="container2"> 
+                    <div class="titulo"><h2>
+                        <h2>Meu genero musical favorito e a minha musica favorita desse genero é: </h2>
+                    </h2>
+                    </div>
+                    <div class="caixas">
+                        <div class="caixa">
+                            <div class="musica_yt">
+                                <span id="img1" ></span>
+                            </div>
+                        </div>
+                        <div class="caixa">
+                            <div class="musica_yt">
+                            <span id="iframe2"  ></span>
+                            </div>
+                        </div>
+                    </div>
+               
+                </div>
+                </div>
+                       
+        </div>
+        <div id="aparecebotao">
+            <button id="botao22" class="btn22" onclick="recomecar()" >recomeçar</button>
+         </div>
+        </div>
+
+
+
+        <div id ="div3" style="display: none;" >
+            <div class="page4">
+                    <div class="container2"> 
+                        <div class="titulo"><h2>
+                            <h1>Você não adivinhou, tente novamente para descobrir</h1>
+                        </h2>
+                        </div>
+                                <div class="musica_yt4">
+                                    <img id="image_lost" width="500" height="300" src="data:image/png;base64,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" alt="">
+                                </div>
+                    
+                    </div>
+                    
+                           
+            </div>
+            <div id="aparecebotao">
+                <button id="botao22" class="btn22" onclick="recomecar()" >recomeçar</button>
+             </div>
+            </div>
+      
+
+      <div class="footer">
+        <div class="container">
+            <h4>Desenvolvido Por Enzo Fabrizio &copy; 2021</h4>
+        </div>
+    </div>
+
+
+
+    
+
+</body>
+
+</html>
