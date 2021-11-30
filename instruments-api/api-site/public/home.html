@@ -48,7 +48,7 @@
     <div class="container1">
         <div class="box">
             <div class="imgBx">
-                <img onclick="favoritar()" id = '.' src="assests2/assets/baixo/baixo3.png" alt="CONTRABAIXO" width="400px">
+                <img onclick="baixo()"  src="assests2/assets/baixo/baixo3.png" alt="CONTRABAIXO" width="400px">
             </div>
             <div class="content">
                 <div>
@@ -61,7 +61,7 @@
         </div>
         <div class="box">
             <div class="imgBx">
-                <img onclick="favoritar()" id = '.' src="assests2/assets/guitarra/guitarra6.jpg" alt="GUITARRA" width="400px">
+                <img onclick="guitarra()" src="assests2/assets/guitarra/guitarra6.jpg" alt="GUITARRA" width="400px">
             </div>
             <div class="content">
                 <div>
@@ -74,7 +74,7 @@
         </div>
         <div class="box">
             <div class="imgBx">
-                <img onclick='favoritar()' id = '.' src="assests2/assets/violao/violao6.png" width="400px">
+                <img onclick='violao()'  src="assests2/assets/violao/violao6.png" width="400px">
             </div>
             <div class="content">
                 <div>
@@ -87,7 +87,7 @@
         </div>
         <div class="box">
             <div class="imgBx">
-                <img onclick='favoritar()' id = '.' src="assests2/assets/teclado/teclado4.jpg" alt="CONTRABAIXO" width="400px">
+                <img onclick='teclado()' src="assests2/assets/teclado/teclado4.jpg" alt="CONTRABAIXO" width="400px">
             </div>
             <div class="content">
                 <div>
@@ -100,7 +100,7 @@
         </div>
         <div class="box">
             <div class="imgBx">
-                <img onclick='favoritar()' id = '.' src="assests2/assets/bateria/bateria6.jpg" alt="CONTRABAIXO" width="400px">
+                <img onclick='bateria()'  src="assests2/assets/bateria/bateria6.jpg" alt="CONTRABAIXO" width="400px">
             </div>
             <div class="content">
                 <div>
@@ -120,76 +120,198 @@
 </html>
 
 <script>
+    function baixo() {
 
-    function favoritar(id) {
-        fetch("https://localhost:3333/usuario/favorito/" + sessionStorage.id, {
-            method: "PUT",
-            body: {
-                idinstrumento: id
-            }
-        }).then(function (resposta) {
-            resposta.json().then(json => {
-                alert("Instrumento cadastrado com sucesso")
-                fech("https://localhost:3333/usuario", {
-                    method: "GET",
-                }).then(function (resposta) {
-                    if (resposta.status == 200) {
-                        resposta.json().then(json => {
-                            listar.len(json)
-                        });
-                    } else {
-                        listagem.innerHTML = ``;
-                    }
-                }).cath(function (erro) {
-                    console.log(erro)
-                })
-            })
-            console.log('oi')
+
+
+var baixoVar = 'baixo'
+
+   
+    
+fetch("/instrumento/baixo", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            guitarraServer: baixoVar
         })
-    }
+    }).then(function (resposta) {
 
+        console.log("resposta: ", resposta);
 
-    function limparFormulario() {
-        document.getElementById("form_postagem").reset();
-    }
-
-    function publicar() {
-        var idUsuario = sessionStorage.ID_USUARIO;
-
-        var corpo = {
-            titulo: form_postagem.titulo.value,
-            descricao: form_postagem.descricao.value
+        if (resposta.ok) {
+            window.alert("Cadastro realizado com sucesso!");
+       
+          
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
         }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+ 
+    });
 
-        fetch(`/avisos/publicar/${idUsuario}`, {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(corpo)
-        }).then(function (resposta) {
+    window.location.href = "./cadastro_emocoes.html"  
+    
 
-            console.log("resposta: ", resposta);
+}
 
-            if (resposta.ok) {
-                window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-                window.location = "/dashboard/mural.html";
-                limparFormulario();
-                finalizarAguardar();
-            } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
-            } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-        });
+function guitarra() {
 
-        return false;
 
-    }
 
+var guitarraVar = 'guitarra'
+
+
+
+    
+fetch("/instrumento/guitarra", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            guitarraServer: guitarraVar
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            window.alert("Cadastro realizado com sucesso!");
+       
+          
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+ 
+    });
+
+    window.location.href = "./cadastro_emocoes.html"  
+    
+}
+
+
+
+function violao() {
+
+
+
+var violaoVar = 'violao'
+
+
+
+
+   
+    
+fetch("/instrumento/violao", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            violaoServer: violaoVar
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            window.alert("Cadastro realizado com sucesso!");
+       
+          
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+ 
+    });
+
+    window.location.href = "./cadastro_emocoes.html"  
+
+}
+
+
+function teclado() {
+
+
+
+var tecladoVar = 'teclado'
+
+
+
+    
+fetch("/isntrumento/teclado", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            tecladoServer: tecladoVar
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            window.alert("Cadastro realizado com sucesso!");
+       
+          
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+ 
+    });
+
+ 
+
+
+
+
+}
+
+function bateria() {
+
+
+
+var bateriaVar = 5
+
+
+    
+fetch("/isntrumento/teclado", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            tecladoServer: tecladoVar
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            window.alert("Cadastro realizado com sucesso!");
+       
+          
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+ 
+    });
+
+    window.location.href = "./cadastro_emocoes.html"  
+
+
+}
 
 
 </script>

@@ -22,5 +22,11 @@ router.post("/autenticar", function (req, res) {
 router.post("/favorito/id", function (req, res) {
     usuarioController.favorito(req, res);
 });
+router.get("/funcmusico", function (req, res) {
+    usuarioController.funcmusico(req, res);
+
+});router.get("/funcnomusico", function (req, res) {
+    usuarioController.funcnomusico(req, res);
+});
 
 module.exports = router;
