@@ -174,9 +174,6 @@ body::-webkit-scrollbar {
 }
 
 select {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  /* margin: 2.5% 0;
-  padding: 4% 6%; */
   background-color: white;
   height: 30px;
   border: 2px solid black;
@@ -184,4 +181,6 @@ select {
   opacity: 95%;
   justify-content: center;
   align-self: center;
+  margin-left: 100px;
+  margin-bottom: 20px;
 }
