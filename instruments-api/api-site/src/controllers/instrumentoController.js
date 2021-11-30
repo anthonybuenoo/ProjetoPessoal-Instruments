@@ -118,11 +118,6 @@ function bateria(req, res) {
 }
 
 
-
-
-
-
-
 module.exports = {
     baixo,
     guitarra,

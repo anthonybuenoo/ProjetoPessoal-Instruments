@@ -45,10 +45,10 @@
         </div>
     </div>
 
-    <div class="container1">
-        <div class="box">
-            <div class="imgBx">
-                <img onclick="baixo()"  src="assests2/assets/baixo/baixo3.png" alt="CONTRABAIXO" width="400px">
+    <div class="">
+        <div class="">
+            <div class="">
+                <img onclick="baixo()"  src="assests2/assets/baixo/baixo3.png" alt="CONTRABAIXO" width="150px">
             </div>
             <div class="content">
                 <div>
@@ -61,7 +61,7 @@
         </div>
         <div class="box">
             <div class="imgBx">
-                <img onclick="guitarra()" src="assests2/assets/guitarra/guitarra6.jpg" alt="GUITARRA" width="400px">
+                <img onclick= "guitarra()" src="assests2/assets/guitarra/guitarra6.jpg" alt="GUITARRA" width="150px">
             </div>
             <div class="content">
                 <div>
@@ -74,7 +74,7 @@
         </div>
         <div class="box">
             <div class="imgBx">
-                <img onclick='violao()'  src="assests2/assets/violao/violao6.png" width="400px">
+                <img onclick='violao()'  src="assests2/assets/violao/violao6.png" width="150px">
             </div>
             <div class="content">
                 <div>
@@ -87,7 +87,7 @@
         </div>
         <div class="box">
             <div class="imgBx">
-                <img onclick='teclado()' src="assests2/assets/teclado/teclado4.jpg" alt="CONTRABAIXO" width="400px">
+                <img onclick='teclado()' src="assests2/assets/teclado/teclado4.jpg" alt="CONTRABAIXO" width="150px">
             </div>
             <div class="content">
                 <div>
@@ -100,7 +100,7 @@
         </div>
         <div class="box">
             <div class="imgBx">
-                <img onclick='bateria()'  src="assests2/assets/bateria/bateria6.jpg" alt="CONTRABAIXO" width="400px">
+                <img onclick='bateria()'  src="assests2/assets/bateria/bateria6.jpg" alt="CONTRABAIXO" width="150px">
             </div>
             <div class="content">
                 <div>
@@ -122,12 +122,8 @@
 <script>
     function baixo() {
 
-
-
 var baixoVar = 'baixo'
-
-   
-    
+ 
 fetch("/instrumento/baixo", {
         method: "POST",
         headers: {
@@ -142,7 +138,7 @@ fetch("/instrumento/baixo", {
 
         if (resposta.ok) {
             window.alert("Cadastro realizado com sucesso!");
-       
+            window.location.href = "./grafico.html" 
           
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
@@ -152,7 +148,7 @@ fetch("/instrumento/baixo", {
  
     });
 
-    window.location.href = "./cadastro_emocoes.html"  
+    
     
 
 }
@@ -180,7 +176,7 @@ fetch("/instrumento/guitarra", {
 
         if (resposta.ok) {
             window.alert("Cadastro realizado com sucesso!");
-       
+            window.location.href = "./grafico.html" 
           
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
@@ -190,8 +186,6 @@ fetch("/instrumento/guitarra", {
  
     });
 
-    window.location.href = "./cadastro_emocoes.html"  
-    
 }
 
 
@@ -199,13 +193,7 @@ fetch("/instrumento/guitarra", {
 function violao() {
 
 
-
 var violaoVar = 'violao'
-
-
-
-
-   
     
 fetch("/instrumento/violao", {
         method: "POST",
@@ -221,7 +209,7 @@ fetch("/instrumento/violao", {
 
         if (resposta.ok) {
             window.alert("Cadastro realizado com sucesso!");
-       
+            window.location.href = "./grafico.html" 
           
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
@@ -230,9 +218,6 @@ fetch("/instrumento/violao", {
         console.log(`#ERRO: ${resposta}`);
  
     });
-
-    window.location.href = "./cadastro_emocoes.html"  
-
 }
 
 
@@ -259,7 +244,7 @@ fetch("/isntrumento/teclado", {
 
         if (resposta.ok) {
             window.alert("Cadastro realizado com sucesso!");
-       
+            window.location.href = "./grafico.html" 
           
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
@@ -280,17 +265,17 @@ function bateria() {
 
 
 
-var bateriaVar = 5
+var bateriaVar = 'bateria'
 
 
     
-fetch("/isntrumento/teclado", {
+fetch("/isntrumento/bateria", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            tecladoServer: tecladoVar
+            bateriaServer: bateriaVar
         })
     }).then(function (resposta) {
 
@@ -298,7 +283,7 @@ fetch("/isntrumento/teclado", {
 
         if (resposta.ok) {
             window.alert("Cadastro realizado com sucesso!");
-       
+            window.location.href = "./grafico.html" 
           
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
@@ -307,9 +292,6 @@ fetch("/isntrumento/teclado", {
         console.log(`#ERRO: ${resposta}`);
  
     });
-
-    window.location.href = "./cadastro_emocoes.html"  
-
 
 }
 
