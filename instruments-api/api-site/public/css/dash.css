@@ -1,19 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap%27');
+
 body{
   margin: 0;
   padding: 0;
   background-color:rgba(0, 0, 0, 0.9);
+  font-family: 'Montserrat';
 }
-
 .header {
   color: white;
   border-bottom: 3px solid #000;
+  top: 1300px;
 
 }
 
 .header .container {
   display: flex;
   justify-content: space-between;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0);
 }
 
 .header a {
@@ -22,10 +25,13 @@ body{
   font-size: 16px;
   font-weight: 10px;
 }
-.header h1 a{
+.header h1{
     font-size: 35px;
     margin-left: 70px;
-}
+    color: #fff;
+    -webkit-text-stroke: 1px #FFF;
+    -stroke: 1px #FFF;
+}   
 .navbar {
   width: 60vh;
   display: flex;
@@ -33,34 +39,48 @@ body{
   justify-content: space-evenly;
   list-style: none;
   color: #fff;
-   
 }
 .navbar  a {
-  color: #fff;
-  text-decoration: none;
-  padding: 5px 5px;
-  border: 1px solid transparent;
-  border-radius: 10px;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 5px;
+	border: 1px solid transparent;
+    border-radius: 10px;
+
 }
 .navbar  a:hover{
-  background-color: #fff;
-   color: black;
-   transition: 0.5s;
-  font-weight: bold;
+    background-color: #fff;
+	color: black;
+	transition: 0.5s;
+    font-weight: bold;
 }
-.dash{
- width: 50vw;
- height: 50vh;
- position: absolute;
- left: 50%;
- top: 50%;
- transform: translate(-50%, -50%);
- border: solid 3px ;
- border-radius: 5px;
+section{
+    height: 10%;
+    padding: 100px;
+    background-color: rgba(0,0,0,0.2);
 }
-.posi{
+.a {
   position: absolute;
-  top: 80%;
   left: 50%;
-  transform: translate(-50%, 0%);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+}
+.graf{
+ height: 40vh;
+ width: 45vw;
+}
+h2{
+  margin-top: 40px;
+  margin-left: 520px;
+  color: #fff;
+}
+.content{
+  border: solid 4px;
+    width: 54vw;
+    height: 62vh;
+    position: absolute;
+    left: 20%;
+    top: 25%;
+    background-color: rgb(255, 255, 255, 0.9);
 }

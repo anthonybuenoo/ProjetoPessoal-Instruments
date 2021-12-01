@@ -58,13 +58,6 @@ function pegar() {
 
 
 
-
-
-
-
-
-
-
 module.exports = {
     feliz,
     triste,

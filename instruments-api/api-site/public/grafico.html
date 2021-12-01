@@ -76,7 +76,7 @@
     </SCript>
 </head>
 
-<body onload="funcmusico(), funcnomusico()">
+<body onload="funcmusico(), funcnomusico(), atualizarFeed()">
 
     <div class="header">
         <div class="container">
@@ -89,13 +89,31 @@
         </div>
     </div>
     
-        <div id="piechart" class="dash"></div>
+        <div id="piechart" style="display: block;"  class="dash"></div>
+        <canvas id="myChartbar1" style="display: none;" width="400px" height="200px"></canvas>
 
         <div class="posi">
-            <button class="btn" onclick = 'ver()'>Ver Quantidade de Músicos</button>
-            <button class="btn" onclick = 'ver()'>Ver Instrumentos Favoritos.</button>
+            <button class="btn" onclick = 'vermusico()'>Ver Quantidade de Músicos</button>
+            <button class="btn" onclick = 'verfavorito()'>Ver Instrumentos Favoritos.</button>
         </div>
     
 </body>
 
 </html>
+<script>
+    function verfavorito(params) {
+        piechart.style.display = "none"
+        myChartbar1.style.display = "block"
+    }
+
+
+
+
+
+
+
+
+
+
+
+</script>

@@ -97,13 +97,6 @@ function cadastrar(req, res) {
       var id = req.params.id;
       var idinstrumento = req.body.idinstrumento;
       
-    // if (fk_instrumento == undefined) {
-    //     res.status(400).send("Seu instrumento está undefined!");
-    // } else if (email == undefined) {
-    //     res.status(4 00).send("Seu email está undefined!");
-    // } else if (senha == undefined) {
-    //     res.status(400).send("Sua senha está undefined!");
-    // } else {
         
         usuarioModel.favorito(id, idinstrumento)
             .then(
@@ -153,6 +146,7 @@ function cadastrar(req, res) {
                 }
             );
     }
+   
     
 module.exports = {
     entrar,
@@ -162,4 +156,5 @@ module.exports = {
     favorito,
     funcmusico,
     funcnomusico,
+    
 }

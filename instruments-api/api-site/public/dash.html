@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métrica</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="css/dash.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Document</title>
+
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Musicos', ''],
+                ['Sim', Number(sessionStorage.MUSICO)],
+                ['Não', Number(sessionStorage.NOMUSICO)],
+            ]);
+
+            var options = {
+                title: 'Quantidade de Músicos'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+    </script>
+
+
+    <script>
+        function funcmusico() {
+            fetch("/usuarios/funcmusico").then(function (resposta) {
+                console.log("ESTOU NO THEN DO funcmusico()!")
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
+
+                        musico = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+                        console.log(musico.musicobd);
+                        sessionStorage.MUSICO = musico.musicobd;
+
+                    });
+                } else {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                }
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+            return false;
+        }
+
+        function funcnomusico() {
+            fetch("/usuarios/funcnomusico").then(function (resposta) {
+                console.log("ESTOU NO THEN DO funcnomusico()!")
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
+
+                        nomusico = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+                        console.log(nomusico.nomusicobd);
+                        sessionStorage.NOMUSICO = nomusico.nomusicobd;
+
+                    });
+                } else {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                }
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+            return false;
+        }
+    </script>
+
+</head>
+
+<body id="back-metric" onload="atualizarFeed(), funcmusico(), funcnomusico()">
+    <div class="header">
+        <div class="container">
+            <h1>Instruments </h1>
+            <ul class="navbar">
+                <li><a href="#">Inicial</a></li>
+                <li> <a href="login.html">Login</a></li>
+                <li class="agora"><a href="./cadastro.html">Cadastro</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>Análise de instrumentos favoritos</h2>
+    <div class="content">
+        <div class='a'>
+            <div class="graf" id='graficoinstrumento' tyle="display: block;">
+                <canvas id="myChartbar1"></canvas>
+                <button onclick='sumir()'>Veja a porcentagem dos músicos</button>
+            </div>
+            <div id='graficomusico' style="display: none;">
+                <div id="piechart" heigth='400px' width='400px' class="dash"></div>
+                <button onclick='aparecer()'>Veja a porcentagem dos instrumentos favoritos</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function sumir() {
+        graficoinstrumento.style.display = "none"
+        graficomusico.style.display = "block"
+    }
+
+    function aparecer() {
+        graficoinstrumento.style.display = "block"
+        graficomusico.style.display = "none"
+    }
+
+    function atualizarFeed() {
+
+        fetch("/instrumento/pegar/", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var baixinho = (resposta[0].nome); // 
+                    var guitarrinha = (resposta[1].nome);
+                    var violinha = (resposta[2].nome);
+                    var tecladinho = (resposta[3].nome);
+                    var baterinha = (resposta[4].nome);
+
+
+
+                    var ctx = document.getElementById('myChartbar1').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Baixo', 'Guitarra', 'Violão', 'Teclado', 'Bateria'],
+                            datasets: [{
+                                label: 'nome',
+                                data: [baixinho, guitarrinha, violinha, tecladinho, baterinha],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132)',
+                                    'rgba(54, 162, 235)',
+                                    'rgba(255, 206, 86)',
+                                    'rgba(75, 192, 192)',
+                                    'rgba(153, 102, 255)',
+                                    'rgba(255, 159, 64)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132)',
+                                    'rgba(54, 162, 235)',
+                                    'rgba(255, 206, 86)',
+                                    'rgba(75, 192, 192)',
+                                    'rgba(153, 102, 255)',
+                                    'rgba(255, 159, 64)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            },
+                            maintainAspectRatio: false
+                        }
+                    });
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+
+        });
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+</script>

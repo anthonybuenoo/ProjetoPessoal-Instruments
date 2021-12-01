@@ -53,15 +53,14 @@ function bateria() {
     return database.executar(instrucao6);
 }
 
-
-
-
-
-
-
-
-
-
+function pegar() {
+    console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucao6 = `
+    select count(nome) as 'nome' from instrumento group by nome order by nome desc;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao6);
+    return database.executar(instrucao6);
+}
 
 
 
@@ -71,5 +70,7 @@ module.exports = {
     violao,
     teclado,
     bateria,
+    pegar,
    
+
 };
