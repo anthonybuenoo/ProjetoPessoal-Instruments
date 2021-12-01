@@ -40,13 +40,16 @@ select*from instrumento;
 SELECT * FROM usuario u
 	left join instrumento i 
 		on u.fk_instrumentosFavorito = i.idinstrumento;
-	
-    
+        
+        
+ -- Count para a contagem de instruemntos selecionados   
 select count(nome) as 'instrumentos' from instrumento group by nome order by nome desc;
 
+-- Inserção de valores manualmente
  INSERT INTO instrumento ( nome) VALUE ('guitarra');
  INSERT INTO instrumento ( nome) VALUE ('guitarra');
  
  
- 
+ -- Cont para a contagem de musicos
  select count(musico) as 'musicobd' from usuario where musico= 'sim';
+  select count(musico) as 'musicobd' from usuario where musico= 'sim';
