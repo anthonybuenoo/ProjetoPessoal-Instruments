@@ -1,79 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/dash.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
+        function drawChart() {
 
-        var data = google.visualization.arrayToDataTable([
-          ['Musicos', ''],
-          ['Sim',     Number(sessionStorage.MUSICO)],
-          ['Não',     Number(sessionStorage.NOMUSICO)],
-        ]);
+            var data = google.visualization.arrayToDataTable([
+                ['Musicos', ''],
+                ['Sim', Number(sessionStorage.MUSICO)],
+                ['Não', Number(sessionStorage.NOMUSICO)],
+            ]);
 
-        var options = {
-          title: 'Quantidade de Músicos'
-        };
+            var options = {
+                title: 'Quantidade de Músicos'
+            };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
-        chart.draw(data, options);
-      }
+            chart.draw(data, options);
+        }
     </script>
 
-    <!-- a -->
+    <!--  -->
     <script>
         function funcmusico() {
-      fetch("/usuarios/funcmusico").then(function (resposta) {
-          console.log("ESTOU NO THEN DO funcmusico()!")
-          if (resposta.ok) {
-              resposta.json().then(function (resposta) {
-                  console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
+            fetch("/usuarios/funcmusico").then(function (resposta) {
+                console.log("ESTOU NO THEN DO funcmusico()!")
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
 
-                  musico = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
-                  console.log(musico.musicobd);
-                  sessionStorage.MUSICO = musico.musicobd;
+                        musico = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+                        console.log(musico.musicobd);
+                        sessionStorage.MUSICO = musico.musicobd;
 
-              });
-          } else {
-              console.log("Dados recebidos: ", JSON.stringify(resposta));
-          }
-      }).catch(function (erro) {
-          console.log(erro);
-      })
-      return false;
-  }
+                    });
+                } else {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                }
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+            return false;
+        }
 
-  function funcnomusico() {
-      fetch("/usuarios/funcnomusico").then(function (resposta) {
-          console.log("ESTOU NO THEN DO funcnomusico()!")
-          if (resposta.ok) {
-              resposta.json().then(function (resposta) {
-                  console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
+        function funcnomusico() {
+            fetch("/usuarios/funcnomusico").then(function (resposta) {
+                console.log("ESTOU NO THEN DO funcnomusico()!")
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
 
-                  nomusico = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
-                  console.log(nomusico.nomusicobd);
-                  sessionStorage.NOMUSICO = nomusico.nomusicobd;
+                        nomusico = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+                        console.log(nomusico.nomusicobd);
+                        sessionStorage.NOMUSICO = nomusico.nomusicobd;
 
-              });
-          } else {
-              console.log("Dados recebidos: ", JSON.stringify(resposta));
-          }
-      }).catch(function (erro) {
-          console.log(erro);
-      })
-      return false;
-  }
+                    });
+                } else {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                }
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+            return false;
+        }
     </SCript>
 </head>
+
 <body onload="funcmusico(), funcnomusico()">
-    <div id="piechart" style="width: 900px; height: 500px;"></div>
+
+    <div class="header">
+        <div class="container">
+            <h1>Instruments </h1>
+            <ul class="navbar">
+                <li><a href="#">Inicial</a></li>
+                <li> <a href="login.html">Login</a></li>
+                <li class="agora"><a href="./cadastro.html">Cadastro</a></li>
+            </ul>
+        </div>
+    </div>
+    
+        <div id="piechart" class="dash"></div>
+
+        <div class="posi">
+            <button class="btn" onclick = 'ver()'>Ver Quantidade de Músicos</button>
+            <button class="btn" onclick = 'ver()'>Ver Instrumentos Favoritos.</button>
+        </div>
+    
 </body>
+
 </html>
