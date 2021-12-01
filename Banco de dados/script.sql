@@ -32,24 +32,19 @@ foreign key (fk_instrumento) references instrumento(idinstrumento),
 foreign key (fk_usuario) references usuario(id)
 );
 
-update usuario set fk_instrumentosFavorito = 1 where id = 4;
-
 select*from usuario;	
 select*from instrumento;
-
-SELECT * FROM usuario u
-	left join instrumento i 
-		on u.fk_instrumentosFavorito = i.idinstrumento;
-        
-        
+      
  -- Count para a contagem de instruemntos selecionados   
 select count(nome) as 'instrumentos' from instrumento group by nome order by nome desc;
+truncate instrumento;
 
 -- Inserção de valores manualmente
- INSERT INTO instrumento ( nome) VALUE ('guitarra');
- INSERT INTO instrumento ( nome) VALUE ('guitarra');
+ INSERT INTO instrumento ( nome) VALUES ('guitarra'), ('bateria'), ('bateria'), ('teclado'), ('teclado');
+
  
  
  -- Cont para a contagem de musicos
  select count(musico) as 'musicobd' from usuario where musico= 'sim';
-  select count(musico) as 'musicobd' from usuario where musico= 'sim';
+  select count(nome) as 'baixobd' from instrumento where nome= 'violao';
+  

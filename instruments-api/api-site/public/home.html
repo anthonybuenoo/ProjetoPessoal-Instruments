@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="css/home.css">
     <link rel="icon" href="./assets/icon/favicon.ico">
-
+    <link rel="shortcut icon" href="assests2/assets/android-chrome-512x512.png" type="image/x-icon">
     <script src="./js/funcoes.js"></script>
     <script src="https://kit.fontawesome.com/258c1b4476.js" crossorigin="anonymous"></script>
     <title>Instruments | Home</title>
@@ -21,8 +21,8 @@
         <div class="container">
             <h1><a href="index.html">Instruments</a></h1>
             <ul class="navbar">
-                <li><a href="grafico.html">Gráficos</a></li>
                 <li><a href="user.html">Voltar a página inicial</a></li>
+                <li><a href="dash.html">Gráficos</a></li>
                 <li><a onclick="limparSessao()" href="login.html">Sair</a></li>
             </ul>
         </div>
@@ -35,7 +35,7 @@
 
             <div class="usuario">
                 <div class="user">
-                    <h3>Olá, <b id="b_usuario"></b></h3>
+                    <h3>Bem vindo, <b id="b_usuario"></b></h3>
                 </div>
                 <div class='saudacao'>
                     Bem vindo a votação de Instrumentos <br>
@@ -48,26 +48,40 @@
     <div class="container1">
         
             <div class="box">
-                <img onclick="baixo()"  src="assests2/assets/baixo/baixo3.png" alt="CONTRABAIXO" >
+                <img onclick="baixo()"  src="https://media.istockphoto.com/photos/electric-bass-guitar-picture-id1009969084?k=20&m=1009969084&s=612x612&w=0&h=wgPovMiNGx814bf7kS0YYsDmzgTYA29LF9gvcTCbWw8=" alt="CONTRABAIXO" >
             </div>
             
             <div class="box">
-                <img onclick= "guitarra()" src="assests2/assets/guitarra/guitarra6.jpg" alt="GUITARRA" >
+                <img onclick= "guitarra()" src="https://thumbs.dreamstime.com/b/imagem-da-guitarra-el%C3%A9trica-no-fundo-branco-18584011.jpg" alt="GUITARRA" >
             </div>
             
             <div class="box">
-                <img onclick='violao()'  src="assests2/assets/violao/violao6.png" >
+                <img onclick='violao()'  src="https://media.istockphoto.com/photos/acoustic-guitar-picture-id173240169?k=20&m=173240169&s=612x612&w=0&h=AxOZUmvZudWG4PJ1TeGiWlFug-37FrtD2vbTZP2yvDk=" >
             </div>
           
             <div class="box">
-                <img onclick='teclado()' src="assests2/assets/teclado/teclado4.jpg" alt="CONTRABAIXO" >
+                <img onclick='teclado()' src="https://i.pinimg.com/236x/1b/3c/fd/1b3cfdee3851b531d6441468997257de.jpg"CONTRABAIXO >
             </div>
             
            
             <div class="box">
-                <img onclick='bateria()'  src="assests2/assets/bateria/bateria6.jpg" alt="CONTRABAIXO" >
+                <img onclick='bateria()'  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUAQRj-VxvJ9OL-znW5fOPR7pWSLwIIWzLZ5RZ_fhDUEHwaE9noKwQfcYnIh0F6hwcwfg&usqp=CAU" alt="CONTRABAIXO" >
             </div>
-        
+    </div>
+
+            <div class="footer">
+                <div class="footer-container">
+                    <h3>Instruments</h3> 
+                    <h4>Todos direitos reservados. &copy;2021</h4>
+                    <ul class="socials">
+                        <li><a href="https://www.instagram.com/"  target="_blank"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://github.com/"  target="_blank"><i class="fab fa-github"></i></a></li>
+                        <li><a href="https://www.youtube.com/"  target="_blank"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="https://www.facebook.com/"  target="_blank"><i class="fab fa-facebook"></i></a></li>
+                    </ul>
+                </div>
+            </div>
 
 </body>
 
@@ -91,8 +105,8 @@ fetch("/instrumento/baixo", {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-            window.alert("Cadastro realizado com sucesso!");
-            window.location.href = "./grafico.html" 
+            window.alert("Seu instrumento foi cadastrado com sucesso!");
+            window.location.href = "dash.html" 
           
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
@@ -129,8 +143,8 @@ fetch("/instrumento/guitarra", {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-            window.alert("Cadastro realizado com sucesso!");
-            window.location.href = "./grafico.html" 
+            window.alert("Seu instrumento foi cadastrado com sucesso!");
+            window.location.href = "dash.html" 
           
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
@@ -162,8 +176,8 @@ fetch("/instrumento/violao", {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-            window.alert("Cadastro realizado com sucesso!");
-            window.location.href = "./grafico.html" 
+            window.alert("Seu instrumento foi cadastrado com sucesso!");
+            window.location.href = "dash.html" 
           
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
@@ -197,8 +211,8 @@ fetch("/isntrumento/teclado", {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-            window.alert("Cadastro realizado com sucesso!");
-            window.location.href = "./grafico.html" 
+            window.alert("Seu instrumento foi cadastrado com sucesso!");
+            window.location.href = "dash.html" 
           
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
@@ -236,8 +250,8 @@ fetch("/isntrumento/bateria", {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-            window.alert("Cadastro realizado com sucesso!");
-            window.location.href = "./grafico.html" 
+            window.alert("Seu instrumento foi cadastrado com sucesso!");
+            window.location.href = "dash.html" 
           
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");

@@ -6,7 +6,8 @@ body{
     background-repeat: no-grepeat;
     background-size: cover ;
     font-family:'Montserrat';
-    background: rgba(0,0,0,0.2);
+    background: linear-gradient(360deg, #000 2%, #fff 90%);
+    /* background: rgba(0,0,0,0.2); */
 }
  html{
   scroll-behavior: smooth;
@@ -71,6 +72,9 @@ body{
   height: 100%;
   margin: 0 10px;
   box-shadow: 0 0 20px 2px rgba(0, 0, 0, .1);
+  cursor: pointer;
+  border: solid 6px black;
+  border-radius: 15px;
 }
 .box img{
   display: block;
@@ -94,13 +98,68 @@ img{
 }
 .usuario .user{
   margin-top: 50px;
-  background-color: rgba( 0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.9);
   border-radius: 0 10px 10px 0;
-  width: 12vw;
-  color: #fff;
+  width: 15vw;
+  color: rgb(209, 178, 1);
   padding: 0 0 0.1px 14px;
   display: flex;
   align-items: center;
  
 }
+.footer-container {
+    background-color: #000;
+    height: 30vh;
+    width: 99.1vw;
+    margin: 0;
+    padding-top: 40px;
+    color: #fff;    
+  }
+   .footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-container h3{
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+    -webkit-text-stroke: 1px #FFF;
+    -stroke: 1px #FFF;
+    text-decoration: none;
+  }
+  .footer-container p {
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 8px;
+    font-size: 14px;
+  }
+  .socials {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+    margin-right: 50px;
+  }
+  .socials li{
+        margin: 0 10px;
+  }
+  .socials a{
+    text-decoration: none;
+    color: #fff;
+  }
+  .socials a i{
+    font-size: 1.1rem;
+    transition: color .4s ease;
+  }
+  .socials a:hover i{
+    color: rgba(255, 0, 0, 0.5);
+  }
+  .footer .container h4 {
+      margin-top:0px;
+  } 
 

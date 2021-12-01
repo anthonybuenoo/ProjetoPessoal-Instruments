@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Métrica</title>
+    <link rel="shortcut icon" href="assests2/assets/android-chrome-512x512.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="css/dash.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -24,6 +25,7 @@
                 ['Musicos', ''],
                 ['Sim', Number(sessionStorage.MUSICO)],
                 ['Não', Number(sessionStorage.NOMUSICO)],
+
             ]);
 
             var options = {
@@ -88,27 +90,31 @@
         <div class="container">
             <h1>Instruments </h1>
             <ul class="navbar">
-                <li><a href="#">Inicial</a></li>
-                <li> <a href="login.html">Login</a></li>
-                <li class="agora"><a href="./cadastro.html">Cadastro</a></li>
+              
+                <li> <a href="user.html">Inicio</a></li>
+                <li><a href="home.html">Votação</a></li>
+                <li class="agora"><a href="./login.html">Finalizar sessão</a></li>
             </ul>
         </div>
     </div>
 
-    <h2>Análise de instrumentos favoritos</h2>
+    <h2>Análise dos Gráficos</h2>
     <div class="content">
         <div class='a'>
             <div class="graf" id='graficoinstrumento' tyle="display: block;">
                 <canvas id="myChartbar1"></canvas>
-                <button onclick='sumir()'>Veja a porcentagem dos músicos</button>
-            </div>
-            <div id='graficomusico' style="display: none;">
-                <div id="piechart" heigth='400px' width='400px' class="dash"></div>
-                <button onclick='aparecer()'>Veja a porcentagem dos instrumentos favoritos</button>
+            </div>  
+            <div id='graficomusico' class="dash" style="display: none;">
+                <div id="piechart" heigth='400px' width='400px'></div>
+
             </div>
         </div>
-    </div>
 
+    </div>
+    <div class='posibotao'>
+        <button class='btn1' onclick='sumir()'>Ver a quantidade de Músicos!</button>
+        <button class='btn1' onclick='aparecer()'>Ver instrumentos favoritos</button>
+    </div>
 </body>
 
 </html>
